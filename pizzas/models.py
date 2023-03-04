@@ -6,24 +6,24 @@ from django.db import models
 class Pizza(models.Model):
     """Тема, що вивчає користувач"""
 
-    name = models.CharField(max_length=200)
+    text = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
 
-    def str(self):
+    def __str__(self):
         """Повертає символьне представлення моделі"""
-        return self.name
+        return self.text
 
 
 class Topping(models.Model):
     """Інформація, що вивчив користувач за темою"""
 
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
-    name = models.TextField()
+    text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        verbose_name_plural = 'entries'
+        verbose_name_plural = 'toppings'
 
-    def str(self):
+    def __str__(self):
         """Повертає символьне представлення моделі"""
-        return f'{self.name[:50]}...'
+        return f'{self.text[:50]}...'
