@@ -1,0 +1,13 @@
+{% extends 'pizzas/base.html' %} {% block content %}
+
+<p>Pizza Types</p>
+
+<ul>
+  {% for pizza in pizzas %}
+  <li>{{ pizza }}</li>
+  {% empty %}
+  <li>Видів ще не було створено.</li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
