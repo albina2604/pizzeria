@@ -3,8 +3,10 @@
 <p>Pizza Types</p>
 
 <ul>
-  {% for pizza in pizza_types %}
-  <li>{{ pizza }}</li>
+  {% for pizza_type in pizza_types %}
+  <li>
+    <a href="{% url 'pizzas:pizza_type' pizza_type.id %}">{{ pizza_type }}</a>
+  </li>
   {% empty %}
   <li>Видів ще не було створено.</li>
   {% endfor %}
